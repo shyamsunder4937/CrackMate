@@ -102,16 +102,24 @@ const CopilotPage = () => {
             </div>
             <div className="p-6 pt-0">
               {idx === 0 ? (
-                <button
-                  className="flex items-center gap-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white font-bold px-5 py-2 rounded-lg shadow-lg border-2 border-yellow-400 hover:from-yellow-500 hover:to-yellow-700 transition relative focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 animate-pulse"
-                  aria-label="Premium PathFinder"
-                >
-                  <FaCrown className="text-white drop-shadow mr-1" />
-                  Premium
-                  <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                </button>
+                <div className="relative group inline-block">
+                  <span className="absolute left-1/2 -translate-x-1/2 -top-8 px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 whitespace-nowrap shadow-lg">
+                    Launching soon!
+                  </span>
+                  <button
+                    className="flex items-center gap-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white font-bold px-5 py-2 rounded-lg shadow-lg border-2 border-yellow-400 hover:from-yellow-500 hover:to-yellow-700 transition relative focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 animate-pulse"
+                    aria-label="Premium PathFinder"
+                  >
+                    <FaCrown className="text-white drop-shadow mr-1" />
+                    FlagShip Tool
+                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                  </button>
+                </div>
               ) : (
                 <div className="relative group inline-block">
+                  <span className="absolute left-1/2 -translate-x-1/2 -top-8 px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 whitespace-nowrap shadow-lg">
+                    Launching soon!
+                  </span>
                   <button
                     className="flex items-center gap-2 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700 text-white font-bold px-5 py-2 rounded-lg shadow-lg border-2 border-blue-400 hover:from-blue-500 hover:to-blue-800 transition relative focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 animate-pulse"
                     aria-label="Coming Soon"
@@ -122,9 +130,6 @@ const CopilotPage = () => {
                     Coming Soon
                     <span className="ml-2 w-2 h-2 bg-white rounded-full animate-pulse shadow-[0_0_8px_2px_rgba(59,130,246,0.5)]"></span>
                   </button>
-                  <span className="absolute left-1/2 -translate-x-1/2 mt-2 px-3 py-1 rounded bg-gray-900 text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 whitespace-nowrap">
-                    Launching soon!
-                  </span>
                 </div>
               )}
             </div>

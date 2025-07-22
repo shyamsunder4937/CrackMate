@@ -19,7 +19,7 @@ const featuresContent = [
   },
   {
     title: 'Copilot',
-    heading: 'AI by your side, whenever you need',
+    heading: 'Your Personal AI Coding & Interview Companion',
     description: 'Real-time desktop companion for voice Q&A, screenshot solving, resume-aware answers, beautiful UI, and privacy-first design.',
     image: '/logos/zoom.jpeg',
   },

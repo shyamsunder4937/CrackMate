@@ -12,8 +12,8 @@ const logos = [
 
 const statsData = [
   { value: 95, label: 'Interview Success Rate', suffix: '%' },
-  { value: 500000, label: 'Successful Interviews', suffix: '+' },
-  { value: 25000, label: 'Job Offers', suffix: '+' },
+  { value: 400, label: 'Successful Interviews', suffix: '+' },
+  { value: 350, label: 'Job Offers', suffix: '+' },
 ];
 
 const Homepage = () => {
@@ -31,6 +31,7 @@ const Homepage = () => {
   const buttonRef = useRef(null);
   const statNumRefs = useRef([]);
   const logoImgRefs = useRef([]);
+  const imageRef = useRef(null);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -149,6 +150,48 @@ const Homepage = () => {
     return () => window.removeEventListener('resize', updateRepeat);
   }, []);
 
+  useEffect(() => {
+    if (!imageRef.current) return;
+    const el = imageRef.current;
+    let floatTween = null;
+    const onEnter = () => {
+      gsap.to(el, {
+        scale: 1.15,
+        rotate: 6,
+        y: -18,
+        boxShadow: '0 12px 48px 0 rgba(33, 150, 243, 0.35), 0 2px 12px 0 rgba(33, 150, 243, 0.18)',
+        filter: 'drop-shadow(0 0 24px #2196f3aa)',
+        duration: 0.6,
+        ease: 'power3.out',
+      });
+      floatTween = gsap.to(el, {
+        y: '+=16',
+        repeat: -1,
+        yoyo: true,
+        duration: 1.2,
+        ease: 'sine.inOut',
+      });
+    };
+    const onLeave = () => {
+      if (floatTween) floatTween.kill();
+      gsap.to(el, {
+        scale: 1,
+        rotate: 0,
+        y: 0,
+        boxShadow: '0 10px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)',
+        filter: 'none',
+        duration: 0.6,
+        ease: 'power3.out',
+      });
+    };
+    el.addEventListener('mouseenter', onEnter);
+    el.addEventListener('mouseleave', onLeave);
+    return () => {
+      el.removeEventListener('mouseenter', onEnter);
+      el.removeEventListener('mouseleave', onLeave);
+    };
+  }, []);
+
   return (
     <div ref={sectionRef} className="min-h-screen flex flex-col bg-white relative overflow-x-hidden">
       {/* Spacer for fixed header */}
@@ -178,60 +221,22 @@ const Homepage = () => {
             <span className="text-blue-600 text-lg sm:text-xl">✔</span>
             <span className="text-gray-600 text-base">No Credit Card</span>
           </div>
-          <div className="flex items-center gap-3 text-gray-600 text-base flex-wrap">
+          {/* <div className="flex items-center gap-3 text-gray-600 text-base flex-wrap">
             <span>Available For</span>
-            {/* Placeholder icons, replace with real icons as needed */}
+            {/* Placeholder icons, replace with real icons as needed 
             <span className="text-2xl"></span>
             <span className="text-2xl"></span>
             <span className="text-2xl">📱</span>
-          </div>
+          </div> */}
         </div>
         {/* Right: Mockup card */}
         <div ref={rightColRef} className="flex-1 flex items-center justify-center w-full md:w-auto mt-8 md:mt-0 mb-32 md:mb-0">
-          <div className="bg-[#181828] rounded-3xl shadow-2xl border border-[#e0e0e0] p-3 sm:p-4 md:p-6 w-full max-w-xs sm:max-w-sm md:max-w-md h-[260px] sm:h-[320px] md:h-[400px] flex flex-col justify-between">
-            {/* Top bar */}
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-white font-semibold text-base flex items-center gap-2">
-                <span className="inline-block w-6 h-6 bg-gray-700 rounded-full mr-2"></span>
-                Interview Copilot
-              </span>
-              <span className="text-gray-300 text-sm">● ● ●</span>
-            </div>
-            {/* Main content area */}
-            <div className="flex-1 flex flex-col md:flex-row gap-2">
-              <div className="flex-1 bg-[#23233a] rounded-lg p-3 text-left text-xs sm:text-sm text-white/80">
-                <span className="text-purple-400 font-semibold">Problem:</span> As a se
-                <div className="mt-8 w-full h-16 sm:h-24 bg-gray-800/40 rounded-lg flex items-center justify-center text-gray-500 text-xs">
-                  <img src="/img-2.jpeg" alt="User video" className="w-full h-full object-cover rounded-lg" />
-                </div>
-              </div>
-              <div className="flex-1 flex flex-col gap-2">
-                <div className="bg-[#23233a] rounded-lg p-2 text-xs text-white/80 mb-1">
-                  <span className="font-semibold">Sentiments</span>
-                  <div className="mt-1 flex flex-wrap gap-1">
-                    <span className="bg-gray-700/60 rounded px-2 py-0.5 text-xs">Passionate</span>
-                    <span className="bg-gray-700/60 rounded px-2 py-0.5 text-xs">Ambitious</span>
-                    <span className="bg-gray-700/60 rounded px-2 py-0.5 text-xs">Interested</span>
-                  </div>
-                </div>
-                <div className="bg-[#23233a] rounded-lg p-2 text-xs text-white/80 flex-1">
-                  <span className="font-semibold">Context retrieval</span>
-                  <div className="mt-1 text-gray-400">Google's mi</div>
-                </div>
-              </div>
-            </div>
-            {/* Bottom bar */}
-            <div className="flex gap-2 mt-10 sm:mt-4 flex-col sm:flex-row">
-              <button className="flex-1 flex items-center justify-center gap-2 bg-black text-white rounded-lg py-2 text-xs font-medium">
-                <span className="inline-block w-4 h-4 bg-white/20 rounded-full"></span>
-                Real-time audio transcr
-              </button>
-              <button className="flex-1 flex items-center justify-center gap-2 bg-black text-white rounded-lg py-2 text-xs font-medium">
-                <span className="inline-block w-4 h-4 bg-white/20 rounded-full"></span>
-                Receive tailored assistance ins
-              </button>
-            </div>
-          </div>
+          <img 
+            ref={imageRef}
+            src="/employee-career-word.jpg" 
+            alt="Employee Career Word" 
+            className="rounded-3xl shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md object-contain bg-white transition-transform duration-300" 
+          />
         </div>
       </div>
       {/* Stats Row */}

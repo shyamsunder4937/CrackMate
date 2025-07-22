@@ -5,35 +5,35 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { value: '99%', label: 'Customers Satisfaction' },
-  { value: '72,670+', label: 'Candidates' },
-  { value: '500,000+', label: 'Successful Interviews' },
-  { value: '6,000+', label: 'Offers in the Past 30 Days' },
+  { value: '400+', label: 'Candidates' },
+  { value: '350+', label: 'Successful Interviews' },
+  { value: '20+', label: 'Offers in the Past 30 Days' },
 ];
 
 const testimonials = [
   {
     quote:
-      'This tool really played a key role in my career progression in supply chain, helping me standout from the rest of the candidates.',
-    name: 'David',
-    title: 'Supply Chain Manager',
-    company: 'Walmart',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+      'CrackMate helped me get my first job in tech! The mock interviews and resume tips were so practical.',
+    name: 'Amit',
+    title: 'Support Executive',
+    company: 'Tata Consultancy',
+    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=256&h=256&facepad=2&q=80', // Indian male, Unsplash
   },
   {
     quote:
-      'Transitioning from engineering to product management was a breeze. It helped me refocus my experience into product seamlessly.',
-    name: 'Sarah',
-    title: 'Sr Product Manager',
-    company: 'Amazon',
-    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-  },
-  {
-    quote:
-      'This tool really accelerated my career progression, helping me become the candidate companies want to hire.',
+      'I was nervous about interviews, but CrackMate made me confident. The daily practice questions are amazing.',
     name: 'Priya',
-    title: 'Software Engineer',
-    company: 'Google',
-    avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
+    title: 'Sales Associate',
+    company: 'Reliance Retail',
+    avatar: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=256&h=256&facepad=2&q=80', // Indian female, Unsplash
+  },
+  {
+    quote:
+      'The AI feedback is so helpful! I improved my answers and got selected as a developer.',
+    name: 'Rohit',
+    title: 'Junior Developer',
+    company: 'Infosys',
+    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=facearea&w=256&h=256&facepad=2&q=80', // Indian male, Unsplash
   },
 ];
 
@@ -115,7 +115,7 @@ const ReviewPage = () => {
             Testimonials
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-2 text-[#110F40]">
-            Interview Copilot is Your Secret Weapon
+            CrackMate Copilot is Your Secret Weapon
           </h2>
           <p className="text-base md:text-xl text-[#A8AFB5] max-w-3xl mx-auto">
             We Help You Land Job Offers and Secure Your Dream Career
